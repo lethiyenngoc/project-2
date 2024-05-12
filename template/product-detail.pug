@@ -1,0 +1,128 @@
+extends layouts/default.pug
+include mixins/product-item.pug
+
+block title
+  title Trang chi tiết sản phẩm
+
+block main
+  
+  //- Product Info
+  .product-info
+    .container
+      .product-info__wrap
+        .product-info__left
+          .product-info__images-main
+            img(src="assets/images/product-detail-1.jpg")
+          .product-info__images-thumb
+            img(src="assets/images/product-detail-1.jpg")
+            img(src="assets/images/product-detail-2.jpg")
+            img(src="assets/images/product-detail-3.jpg")
+            img(src="assets/images/product-detail-4.jpg")
+            img(src="assets/images/product-detail-5.jpg")
+        .product-info__right
+          //- Breadcrumb
+          div(class="breadcrumb")
+            div(class="breadcrumb__wrap")
+              a(href="#" class="breadcrumb__link") Trang chủ
+              a(href="#" class="breadcrumb__link") Chó
+              a(href="#" class="breadcrumb__link") Chó con
+              a(href="#" class="breadcrumb__link") Shiba Inu Màu Nâu Đỏ
+          //- End Breadcrumb
+
+          h1.product-info__title Shiba Inu Màu Nâu Đỏ
+          .product-info__price 12.000.000 VND
+          .product-info__buttons
+            a(href="#" class="button") Liên hệ
+            a(href="#" class="button button--outline")
+              i(class="fa-regular fa-comment-dots button__icon--left")
+              | Chat với Monito
+          .product-info__table
+            table
+              tbody
+                tr
+                  td SKU
+                  td #1000078
+                tr
+                  td Giống
+                  td Cái
+                tr
+                  td Tuổi
+                  td 2 tháng
+                tr
+                  td Kích thước
+                  td Nhỏ
+                tr
+                  td Màu sắc
+                  td Nâu đỏ
+                tr
+                  td Mô tả ngắn
+                  td Giống thuần chủng Shih Tzu. Cấu trúc cơ thể tốt. Với chứng chỉ MKA và Microchip. Cha từ dòng dõi vô địch.
+          
+          .box-share
+            .box-share__label
+              <i class="fa-solid fa-share-nodes"></i>
+              | Chia sẻ:
+            ul.box-share__list
+              li.box-share__item
+                a(href="#" class="box-share__link" target="_blank") <i class="fa-brands fa-facebook"></i>
+              li.box-share__item
+                a(href="#" class="box-share__link" target="_blank") <i class="fa-brands fa-twitter"></i>
+              li.box-share__item
+                a(href="#" class="box-share__link" target="_blank") <i class="fa-brands fa-instagram"></i>
+              li.box-share__item
+                a(href="#" class="box-share__link" target="_blank") <i class="fa-brands fa-youtube"></i>
+  //- End Product Info
+
+  //- Khách hàng của chúng tôi
+  //- Hết Khách hàng của chúng tôi
+
+  //- Xem thêm chó con
+  div(class="section-2")
+    div(class="container")
+      div(class="box-head")
+        div(class="box-head__left")
+          div(class="box-head__sub-title") Có gì mới?
+          h2(class="box-head__title") Xem thêm chó con
+
+      div(class="section-2__wrap")
+        -
+          var pets = [
+            {
+              image: 'assets/images/product-1.jpg',
+              title: 'MO231 - Pomeranian Trắng',
+              gender: 'Đực',
+              age: '02 tháng',
+              price: '6.900.000 VND'
+            },
+            {
+              image: 'assets/images/product-2.jpg',
+              title: 'MO502 - Poodle Tiny Vàng',
+              gender: 'Cái',
+              age: '02 tháng',
+              price: '3.900.000 VND'
+            },
+            {
+              image: 'assets/images/product-3.jpg',
+              title: 'MO102 - Poodle Tiny Sepia',
+              gender: 'Đực',
+              age: '02 tháng',
+              price: '4.000.000 VND'
+            },
+            {
+              image: 'assets/images/product-4.jpg',
+              title: 'MO512 - Alaskan Malamute',
+              gender: 'Đực',
+              age: '03 tháng',
+              price: '8.900.000 VND'
+            }
+          ];
+
+        each pet in pets
+          +product-item(
+            pet.image, 
+            pet.title, 
+            pet.gender, 
+            pet.age, 
+            pet.price
+          )
+  //- Hết Xem thêm chó con
